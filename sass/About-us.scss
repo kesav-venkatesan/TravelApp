@@ -1,0 +1,103 @@
+
+.section-about{
+    background-color: $bg_white;
+    padding: 25rem 0;
+    margin-top: -25vh;
+}
+
+.h-sec{
+    @extend %ext-h2;
+    margin-bottom:4.8rem ;
+
+}
+
+.make-center-text{
+    text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 13%;
+   
+}
+
+.h-tri{
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.para{
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    &:not(:last-child){
+        margin-bottom: 2.6rem;
+    }
+}
+.btn-about{
+    border: none;
+    color: $left;
+    padding: 1.6rem 3.2rem;
+    font-size: 1.8rem;
+    text-decoration: underline;
+    text-underline-offset:1rem;
+    text-decoration-thickness:0.2rem ;
+    font-weight: 700;
+    transition: all 0.2s;
+    
+    display: inline-block;
+    &:hover{
+        color: $bg_white;
+        background-color: $left;
+        transform: translateY(-0.2rem);
+        box-shadow: 0.5rem 1rem 1rem rgba($color: #000000, $alpha: 0.2);
+        text-decoration: none;
+    }
+    &:active{
+        transform: translateY(0.1rem); 
+        box-shadow: 0.3rem 0.5rem 1rem rgba($color: #000000, $alpha: 0.2);
+    }
+}
+
+.composition{
+    position: relative;
+    justify-content: center;
+    &__photo{
+       margin-left: 4rem;
+        width: 55%;
+        box-shadow: 0 2rem 4rem rgba(black,0.5);
+        position: absolute;
+        transition: all 0.2s;
+        outline-offset: 2rem;
+        &:hover{
+            z-index: 1;
+            transform: scale(1.1);
+            outline: $left 5px solid;
+            background-color: $left;
+            
+        }
+    }
+
+    
+    
+    &--photo1{
+        top:-2rem;
+        left: 2rem;
+
+        
+    }
+    &--photo2{
+        top:6rem;
+        left: 20rem;
+    }
+    &--photo3{
+        top:15rem;
+        left: 10rem;
+    }
+}
+
+
+
+

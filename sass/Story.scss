@@ -1,0 +1,119 @@
+.section-stories {
+    margin: -10rem 0 15rem 0;
+     position: relative;
+     padding-top:5rem;
+
+     & .make-center-text{
+        background-color: transparent;
+        padding:  15rem 0 0 0;
+        z-index: 1;
+     }
+
+    & video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.15;
+        z-index: -1;
+        
+        object-fit: cover;
+    }
+    & .center {
+        text-align: center;
+        padding-bottom: 10rem;
+        
+        & .btn-about-story{
+            text-decoration: underline;
+            transition: all 0.3s;
+            text-underline-offset: 10px;  
+            font-size: 2rem; 
+            color: rgb(54, 133, 229);  
+        }
+        
+        & .btn-about-story:hover{
+            box-shadow: 0 1rem 2rem rgba(black,0.2);
+            background-color: rgb(54, 133, 229);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transform: translateY(-50%);
+        }
+    }
+    
+}
+.story {
+    width: 70%;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+    margin: 0rem auto;
+    border-radius: 3px;
+    background-color: rgba(240, 248, 255, 0.451);
+    padding: 6rem;
+    transform: skewX(-12deg);
+    margin-bottom:10rem ;
+
+    &>* {
+        transform: skewX(12deg);
+    }
+
+    &-pic {
+        -webkit-shape-outside: circle(40% at 50% 50%);
+        // shape-outside: circle(50% at %50 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        width: 15rem;
+        height: 15rem;
+        background-color: red;
+
+        float: left;
+
+
+        margin-right: 10rem;
+        position: relative;
+        
+
+        & .cap {
+            font-size: 1.7rem;
+            position: absolute;
+            text-align: center;
+            color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        & img {
+            height: 100%;
+            transform: translateX(-4rem) scale(1.5);
+            transition: all 0.5s;
+        }
+
+    }
+
+    &:hover {
+        .cap {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+        & img{
+            transform: translateX(-4rem) scale(1.1);
+            filter: blur(4px) brightness(80%);
+        }
+    }
+
+
+
+
+
+
+
+    & story-text {
+        float: right;
+        padding: 2rem;
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+}

@@ -1,0 +1,275 @@
+.section-price {
+    padding: 10rem;
+    background-color: #f7f7f7;
+    margin-top: -10rem;
+    position: relative;
+    transform: skewY(-7deg);
+   
+    h2{
+        transform: skewY(7deg);
+
+    }
+
+}
+
+%basic-before {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+
+    font-weight: 400;
+    color: #fff;
+    top: 14rem;
+    right: 2rem;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+%basic-after {
+    font-size: 2.5rem;
+    padding: 0 1rem;
+    font-weight: 400;
+    color: #fff;
+    top: 17rem;
+    right: 3rem;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+    padding: 0 10rem;
+    transform: skewY(7deg);
+    margin-bottom: 10rem;
+}
+
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+
+    &__pic {
+        height: 45%;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+        background-size: cover;
+        background-blend-mode: screen;
+        position: relative;
+        margin-bottom: 2rem;
+
+        &-1 {
+            background-image: linear-gradient(to right bottom, #ffbb00, #ff7730), url("../img/nat-5.jpg");
+        }
+
+        &-2 {
+            background-image: linear-gradient(to right bottom, #69db7c, #37b24d), url("../img/nat-6.jpg");
+        }
+
+        &-3 {
+            background-image: linear-gradient(to right bottom, #74c0fc, #1c7ed6), url("../img/nat-7.jpg");
+        }
+    }
+
+    &__details {
+        & ul {
+            color: black;
+            list-style: none;
+            text-align: center;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+
+            li{
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 0.5px solid #777777;
+
+                }
+
+            }
+        }
+
+
+    }
+
+    &__side {
+
+        height: 50rem;
+        transition: all 0.8s ease;
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 0.3rem;
+        box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+        overflow: hidden;
+
+        &--front {
+
+
+            &-f1-1::before {
+                content: "The sea";
+                @extend %basic-before;
+                position: absolute;
+                background-image: linear-gradient(to right bottom, #ffbb00d2, #ff7830), ;
+
+
+            }
+
+            &-f1-1::after {
+                content: "Explorer";
+                position: absolute;
+                background-image: linear-gradient(to right bottom, #ffbb00b0, #ff5900), ;
+                @extend %basic-after;
+            }
+
+            &-f1-2::before {
+                content: "The forest";
+                @extend %basic-before;
+                position: absolute;
+                background-image: linear-gradient(to right bottom, #69db7c, #37b24d), ;
+
+
+            }
+
+            &-f1-2::after {
+                content: "Hiking";
+                position: absolute;
+                background-image: linear-gradient(to right bottom, #69db7c, #37b24d), ;
+                @extend %basic-after;
+            }
+
+            &-f1-3::before {
+                content: "The show";
+                @extend %basic-before;
+                position: absolute;
+                background-blend-mode: darken;
+                background-image: linear-gradient(to right bottom, #74c0fc, #1c7ed6), ;
+
+
+            }
+
+            &-f1-3::after {
+                content: "adventurer";
+                position: absolute;
+                background-image: linear-gradient(to right bottom, #74c0fc, #1c7ed6), ;
+                @extend %basic-after;
+            }
+        }
+
+        &--back {
+            
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction:column ;
+            justify-content: center;
+            align-items: center;
+            
+            & .only{
+                margin-bottom: 1.6rem;
+                font-size: 2.4rem;
+            }
+            & .price{
+                margin-bottom: 4.8rem;
+                font-size: 4.8rem;
+            color: white;
+            font-weight: 400;
+            & span{
+                font-weight: 400;
+            }
+            }
+            & .book-btn{
+                
+                &:link,&:visited{
+                    text-decoration: none;
+                    color: #777;
+                    font-size: 2.4rem;
+                    background-color: white;
+                    padding:0.8rem 1.6rem;
+                    border-radius: 100px;
+                    position: relative;
+                    
+
+                }
+                &::after{
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100px;
+                    background-color: rgba(black,0.3);
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    z-index: -1;
+                    transition: all 0.5s;
+                    
+                }
+
+                &:hover{
+                    transform: translateY(-0.2rem);
+                    box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.2);
+                    &:hover::after{
+                        transform: scale(1.5) ;
+                        opacity: 0;
+                    }
+                }
+
+
+            }
+
+            &-b1 {
+                background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+            }
+            &-b2 {
+                background-image: linear-gradient(to right bottom, #69db7c, #37b24d), ;
+            }
+            &-b3 {
+                background-image: linear-gradient(to right bottom, #74c0fc, #1c7ed6), ;
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg)
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0)
+    }
+}
+
+.last-btn{
+    margin-top: 100rem;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 10rem;
+    left:50%;
+   
+
+    transform: translateX(-50%) skewY(7deg);
+    & a {
+        background-color: #74c0fc;
+        color: white;
+        transition: all 0.3s; // Adjusted transition duration to 0.5s
+
+        & span {
+            display: none;
+        }
+
+        &:hover {
+            color: #74c0fc;
+            text-decoration: underline;
+            background-color: white;
+            text-underline-offset: 0.5rem;
+
+            & span {
+                display: inline;
+            }
+        }
+    }
+}
+

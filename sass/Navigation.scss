@@ -1,0 +1,145 @@
+.navigation {
+    &-checkbox {
+        visibility: hidden;
+    }
+
+    &-checkbox:checked ~ &-button .navigation-icon {
+        background-color: transparent;
+
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+    }
+    &-checkbox:checked ~ &-bg {
+        transform: scale(80);
+    }
+
+    &-checkbox:checked .navigation-nav{
+        width: 100%;
+        opacity: 1;
+    }
+
+
+
+    &-button {
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 8rem;
+        right: 6rem;
+        z-index: 30;
+        box-shadow: 0 1rem 3rem rgba(black, 0.2);
+        background-color: #fff;
+        border-radius: 50%;
+        text-align: center;
+
+        &:hover {
+            .navigation-icon::before {
+                top: -1rem;
+            }
+            .navigation-icon::after {
+                top: 1rem;
+            }
+        }
+    }
+
+    &-bg {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 8.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient(#4dabf7, #1c7ed6);
+        z-index: 20;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &-nav {
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 25;
+        opacity: 0;
+        width: 0;
+        transition: all 0.4s
+    }
+
+    &-list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        list-style: none;
+    }
+
+    &-item {
+        margin: 2rem;
+    }
+
+    &-link {
+        &:link,
+        &:visited {
+            font-size: 3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+            background-size: 220%;
+            transition: all 0.3s;
+        }
+
+        &:active,
+        &:hover {
+            background-position: 100%;
+            color: #1c7ed6;
+            font-weight: 500;
+            transform: translateX(1rem);
+        }
+    }
+
+  
+    &-icon {
+        position: relative;
+        margin-top: 3.3rem;
+        transition: all 0.3s;
+        &,
+        &::after,
+        &::before {
+            width: 3rem;
+            height: 0.3rem;
+            background-color: black;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -0.8rem;
+        }
+
+        &::after {
+            top: 0.8rem;
+        }
+
+        
+    }
+}
